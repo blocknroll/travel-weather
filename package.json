@@ -1,5 +1,5 @@
 {
-  "name": "travel-travel-weather",
+  "name": "travel-weather",
   "version": "1.0.0",
   "description": "The goal of this project is to create an asynchronous web app that uses Web API and user data to dynamically update the UI.",
   "main": "server.js",
