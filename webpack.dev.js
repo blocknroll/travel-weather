@@ -1,4 +1,5 @@
 /*jshint esversion: 8 */
+require('dotenv').config();
 
 const path = require('path');
 const webpack = require('webpack');
@@ -27,6 +28,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env.API_KEY_OPENWX": JSON.stringify(process.env.API_KEY_OPENWX)
+      // "process.env.API_KEY_OPENWX": JSON.stringify("aCoolValue")
+    }),
     new HtmlWebPackPlugin({
       template: "./src/client/views/index.html",
       filename: "./index.html",

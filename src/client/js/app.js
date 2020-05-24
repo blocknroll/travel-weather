@@ -2,17 +2,15 @@
 
 /* Global Variables */
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '&units=imperial&APPID=';
+const apiKey = process.env.API_KEY_OPENWX;
+
+
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth() + 1 + '.' + d.getDate()+ '.' + d.getFullYear();
 
 
-
-// GENERATE button - add event listener
-document.querySelector('#generate').addEventListener('click', performAction);
-
-// callback function to execute when clicked
+// CALLBACK function to execute when GENERATE button is clicked
 function performAction(e){
   let zip = document.getElementById('zip').value;
   let feelings = document.querySelector('#feelings').value;
@@ -34,6 +32,7 @@ function performAction(e){
     postData('/addData',
             {temperature:data.main.temp, date:newDate, feelings:feelings}
     );
+    console.log(data.main.temp);
   })
   .then(
   // UPDATE UI with the returned data
@@ -57,7 +56,6 @@ function performAction(e){
 }
 
 
-
 // async POST Function //////////////////////////
 const postData = async ( url = '', data = {})=>{
   const response = await fetch(url, {
@@ -77,6 +75,7 @@ const postData = async ( url = '', data = {})=>{
     // appropriately handle the error
   }
 };
+
 
 export {
   performAction
