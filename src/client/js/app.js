@@ -1,6 +1,6 @@
 /*jshint esversion: 8 */
 
-/* Global Variables */
+// /* Global Variables */
 const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = process.env.API_KEY_OPENWX;
 
@@ -12,6 +12,7 @@ let newDate = d.getMonth() + 1 + '.' + d.getDate()+ '.' + d.getFullYear();
 
 // CALLBACK function to execute when GENERATE button is clicked
 function performAction(e){
+
   let zip = document.getElementById('zip').value;
   let feelings = document.querySelector('#feelings').value;
 
@@ -35,25 +36,27 @@ function performAction(e){
     console.log(data.main.temp);
   })
   .then(
-  // UPDATE UI with the returned data
-  updateUI = async () => {
-    const request = await fetch('/all');
-    try{
-      const allData = await request.json();
-      console.log(allData);
-      document.querySelector('#date').innerHTML = 'happy ' + allData.date + '!';
+    // UPDATE UI with the returned data
+    async function updateUI() {
+      const request = await fetch('/all');
+      try{
+        const allData = await request.json();
+        console.log(allData);
+        document.querySelector('#date').innerHTML = 'happy ' + allData.date + '!';
 
-      document.querySelector('#temp').innerHTML = "it's " +
-                                                  allData.temperature.toFixed() +
-                                                  '<span>&#176;</span>F';
+        document.querySelector('#temp').innerHTML = "it's " +
+                                                    allData.temperature.toFixed() +
+                                                    '<span>&#176;</span>F';
 
-      document.querySelector('#content').innerHTML = "and I'm feeling " +
-                                                     allData.feelings;
-    } catch(error) {
-      console.log('updateUI error', error);
+        document.querySelector('#content').innerHTML = "and I'm feeling " +
+                                                        allData.feelings;
+      } catch(error) {
+        console.log('updateUI error', error);
+      }
     }
-  });
+  );
 }
+
 
 
 // async POST Function //////////////////////////
