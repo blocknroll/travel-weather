@@ -1,19 +1,18 @@
 /*jshint esversion: 8 */
 
-import { performAction } from './js/app';
+import { logWeather } from './js/logWeather';
 import { getWeather } from './js/getWeather';
 import { postData } from './js/postData';
 import { updateUI } from './js/updateUI';
 import './styles/style.scss';
 
 console.log("index.js - client: running");
-alert('yeh brah!');
 
 // GENERATE button - add event listener
-document.querySelector('#generate').addEventListener('click', performAction);
+document.querySelector('#generate').addEventListener('click', logWeather);
 
 export {
-  performAction,
+  logWeather,
   getWeather,
   postData,
   updateUI

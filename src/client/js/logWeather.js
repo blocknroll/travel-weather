@@ -1,7 +1,7 @@
 /*jshint esversion: 8 */
 
 // CALLBACK function to execute when GENERATE button is clicked
-function performAction(e){
+function logWeather(e){
 
   const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
   const apiKey = process.env.API_KEY_OPENWX;
@@ -23,5 +23,5 @@ function performAction(e){
 }
 
 export {
-  performAction
+  logWeather
 };
