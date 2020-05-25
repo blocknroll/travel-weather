@@ -3,7 +3,7 @@
 import { performAction } from './js/app';
 import { getWeather } from './js/getWeather';
 import { postData } from './js/postData';
-
+import { updateUI } from './js/updateUI';
 import './styles/style.scss';
 
 console.log("index.js - client: running");
@@ -15,5 +15,6 @@ document.querySelector('#generate').addEventListener('click', performAction);
 export {
   performAction,
   getWeather,
-  postData
+  postData,
+  updateUI
 };

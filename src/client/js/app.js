@@ -17,50 +17,10 @@ function performAction(e){
             {temperature:data.main.temp, date:newDate, feelings:feelings}
     );
   })
-  .then(
-    // UPDATE UI with the returned data
-    async function updateUI() {
-      const request = await fetch('/all');
-      try{
-        const allData = await request.json();
-        console.log(allData);
-        document.querySelector('#date').innerHTML = 'happy ' + allData.date + '!';
-
-        document.querySelector('#temp').innerHTML = "it's " +
-                                                    allData.temperature.toFixed() +
-                                                    '<span>&#176;</span>F';
-
-        document.querySelector('#content').innerHTML = "and I'm feeling " +
-                                                        allData.feelings;
-      } catch(error) {
-        console.log('updateUI error', error);
-      }
-    }
-  );
+  .then(function() {
+    Client.updateUI();
+  });
 }
-
-
-
-// // async POST Function //////////////////////////
-// const postData = async ( url = '', data = {})=>{
-//   const response = await fetch(url, {
-//     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-//     credentials: 'same-origin', // include, *same-origin, omit
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data), //body datatype must match "Content-Type" header
-//   });
-//
-//   try {
-//     const newData = await response.json();
-//     return newData;
-//   }catch(error) {
-//     console.log("postData error", error);
-//     // appropriately handle the error
-//   }
-// };
-
 
 export {
   performAction
