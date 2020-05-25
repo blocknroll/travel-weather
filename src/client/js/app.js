@@ -13,7 +13,7 @@ function performAction(e){
   Client.getWeather(baseURL, zip, apiKey)
   .then(function(data){
     // add data - Call Function
-    postData('/addData',
+    Client.postData('/addData',
             {temperature:data.main.temp, date:newDate, feelings:feelings}
     );
   })
@@ -41,25 +41,25 @@ function performAction(e){
 
 
 
-// async POST Function //////////////////////////
-const postData = async ( url = '', data = {})=>{
-  const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data), //body datatype must match "Content-Type" header
-  });
-
-  try {
-    const newData = await response.json();
-    return newData;
-  }catch(error) {
-    console.log("postData error", error);
-    // appropriately handle the error
-  }
-};
+// // async POST Function //////////////////////////
+// const postData = async ( url = '', data = {})=>{
+//   const response = await fetch(url, {
+//     method: 'POST', // *GET, POST, PUT, DELETE, etc.
+//     credentials: 'same-origin', // include, *same-origin, omit
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data), //body datatype must match "Content-Type" header
+//   });
+//
+//   try {
+//     const newData = await response.json();
+//     return newData;
+//   }catch(error) {
+//     console.log("postData error", error);
+//     // appropriately handle the error
+//   }
+// };
 
 
 export {
