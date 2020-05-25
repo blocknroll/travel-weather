@@ -1,6 +1,7 @@
 /*jshint esversion: 8 */
 
 import { performAction } from './js/app';
+import { getWeather } from './js/getWeather';
 
 import './styles/style.scss';
 
@@ -11,5 +12,6 @@ alert('yeh brah!');
 document.querySelector('#generate').addEventListener('click', performAction);
 
 export {
-  performAction
+  performAction,
+  getWeather
 };
