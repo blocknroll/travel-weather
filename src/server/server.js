@@ -1,7 +1,7 @@
 /*jshint esversion: 9 */
 
 // ENDPOINT: Setup empty JS object to act as endpoint for all routes
-projectData = {};
+let projectData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -33,7 +33,7 @@ const server = app.listen(port, () => {
 
 // GET index.html
 app.get('/', function (req, res) {
-  res.sendFile('dist/index.html');
+  res.status(200).sendFile('dist/index.html');
 });
 
 // GET route: projectData
