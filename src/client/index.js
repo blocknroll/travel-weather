@@ -4,6 +4,7 @@ import { logWeather } from './js/logWeather';
 import { getWeather } from './js/getWeather';
 import { postData } from './js/postData';
 import { updateUI } from './js/updateUI';
+import { getLatLng } from './js/getLatLng';
 import './styles/style.scss';
 
 console.log("index.js - client: running");
@@ -15,5 +16,6 @@ export {
   logWeather,
   getWeather,
   postData,
-  updateUI
+  updateUI,
+  getLatLng
 };
