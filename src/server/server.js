@@ -50,9 +50,9 @@ app.post('/addData', addData);
 function addData (request, response){
 
   const newData = {
-    temperature: request.body.temperature,
     date: request.body.date,
-    feelings: request.body.feelings
+    feelings: request.body.feelings,
+    temperature: request.body.temperature
   };
 
   Object.assign(projectData, newData);
