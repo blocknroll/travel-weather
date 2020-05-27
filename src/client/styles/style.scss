@@ -1,9 +1,9 @@
-body{
+body {
   background: rgb(201, 220, 250);
   margin: 0;
 }
 
-.app{
+.app {
   align-items: center;
   color: black;
   display: grid;
@@ -16,13 +16,13 @@ body{
   width: 80vw;
 }
 
-.holder{
+.holder {
   display: flex;
   flex-direction: column;
   font-weight: 200;
 }
 
-.entry{
+.entry {
   background: rgb(153, 185, 234);
   margin-top: 20px;
   padding: 10px 0;
@@ -48,12 +48,12 @@ h1 {
   text-transform: uppercase;
 }
 
-label{
+label {
     display:block;
     margin: 0 auto 5px;
 }
 
-input{
+input {
     background:white;
     border: none;
     color: rgb(179,179,179);
@@ -64,7 +64,7 @@ input{
     text-align: center;
 }
 
-textarea{
+textarea {
   border: none;
   color: rgb(179,179,179);
   font-family: 'Work Sans', sans-serif;
@@ -94,7 +94,7 @@ button:focus {
 }
 
 
-button{
+button {
     background: #3b4a6b;
     border: none;
     color: white;
