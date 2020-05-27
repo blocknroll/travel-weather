@@ -6,6 +6,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "terser-webpack-plugin": "^3.0.1"
@@ -16,6 +17,7 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
@@ -28,7 +30,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server/server.js",
-    "build-dev": "webpack-dev-server --config webpack.dev.js --open",
+    "build-dev": "webpack-dev-server --inline --progress --port 8080 --config webpack.dev.js --open --display-error-details",
     "build-prod": "webpack --config webpack.prod.js"
   },
   "repository": {
