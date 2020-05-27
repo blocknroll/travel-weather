@@ -7,27 +7,39 @@ function logWeather(e){
   const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
   const GEONAMES_baseURL = 'http://api.geonames.org/geoCodeAddressJSON?q=';
   const GEONAMES_API_KEY = process.env.GEONAMES_API_KEY;
+  const WEATHERBIT_baseURL = 'https://api.weatherbit.io/v2.0/current?lat=';
+  const WEATHERBIT_API_KEY = process.env.WEATHERBIT_API_KEY;
   const d = new Date();
   const newDate = d.getMonth() + 1 + '.' + d.getDate()+ '.' + d.getFullYear();
-  const zip = document.querySelector('#zip').value;
   const feelings = document.querySelector('#feelings').value;
   const city = document.querySelector('#city').value;
 
+
   Client.countdown();
 
-  Client.getLatLng(GEONAMES_baseURL, city, GEONAMES_API_KEY);
+  Client.getLatLng(GEONAMES_baseURL, city, GEONAMES_API_KEY)
+  .then(
+    async function getWeatherCurrent (geonamesData) {
+      const lat = geonamesData.address.lat;
+      const lon = geonamesData.address.lng;
 
-  Client.getWeather(OPENWEATHER_baseURL, zip, OPENWEATHER_API_KEY)
-  .then(function(data){
+      const response = await fetch(WEATHERBIT_baseURL+lat+'&lon='+lon+WEATHERBIT_API_KEY);
+      try {
+        const weatherbitData = await response.json();
+        return weatherbitData;
+      } catch(error) {
+        console.log('getWeather error', error);
+      }
+    }
+  ).then(function(weatherbitData){
     // add data - Call Function
     Client.postData('/addData',
-                   {temperature:data.main.temp, date:newDate, feelings:feelings}
+                   {temperature:weatherbitData.data[0].temp, date:newDate, feelings:feelings}
     );
   })
   .then(function() {
     Client.updateUI();
   });
-
 }
 
 export {
