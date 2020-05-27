@@ -5,6 +5,7 @@ import { getWeather } from './js/getWeather';
 import { postData } from './js/postData';
 import { updateUI } from './js/updateUI';
 import { getLatLng } from './js/getLatLng';
+import { countdown } from './js/countdown';
 import './styles/style.scss';
 
 console.log("index.js - client: running");
@@ -17,5 +18,6 @@ export {
   getWeather,
   postData,
   updateUI,
-  getLatLng
+  getLatLng,
+  countdown
 };
