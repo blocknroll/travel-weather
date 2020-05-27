@@ -3,14 +3,22 @@
 // CALLBACK function to execute when GENERATE button is clicked
 function logWeather(e){
 
-  const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-  const apiKey = process.env.API_KEY_OPENWX;
+  const OPENWEATHER_baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+  const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
+
+  const GEONAMES_baseURL = 'http://api.geonames.org/geoCodeAddressJSON?q=';
+  const GEONAMES_API_KEY = process.env.GEONAMES_API_KEY;
+
   let d = new Date();
   let newDate = d.getMonth() + 1 + '.' + d.getDate()+ '.' + d.getFullYear();
-  let zip = document.getElementById('zip').value;
+  let zip = document.querySelector('#zip').value;
   let feelings = document.querySelector('#feelings').value;
+  let city = document.querySelector('#city').value;
 
-  Client.getWeather(baseURL, zip, apiKey)
+
+  Client.getLatLng(GEONAMES_baseURL, city, GEONAMES_API_KEY);
+
+  Client.getWeather(OPENWEATHER_baseURL, zip, OPENWEATHER_API_KEY)
   .then(function(data){
     // add data - Call Function
     Client.postData('/addData',
@@ -20,6 +28,7 @@ function logWeather(e){
   .then(function() {
     Client.updateUI();
   });
+
 }
 
 export {

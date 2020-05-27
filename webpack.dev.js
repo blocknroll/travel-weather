@@ -1,6 +1,5 @@
 /*jshint esversion: 8 */
 require('dotenv').config();
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -29,8 +28,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.API_KEY_OPENWX": JSON.stringify(process.env.API_KEY_OPENWX)
-      // "process.env.API_KEY_OPENWX": JSON.stringify("aCoolValue")
+      "process.env.OPENWEATHER_API_KEY": JSON.stringify(process.env.OPENWEATHER_API_KEY),
+      "process.env.GEONAMES_API_KEY": JSON.stringify(process.env.GEONAMES_API_KEY)
     }),
     new HtmlWebPackPlugin({
       template: "./src/client/views/index.html",
