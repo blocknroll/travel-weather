@@ -77,3 +77,7 @@ const postData = async ( url = '', data = {})=>{
     // appropriately handle the error
   }
 };
+
+export {
+  performAction
+};
