@@ -7,7 +7,7 @@ projectData = {};
 const express = require('express');
 // Start up an instance of app
 const app = express();
-const port = 5000;
+const port = 8081;
 
 /* Middleware*/
 // configure express to use body-parser as middle-ware
@@ -19,7 +19,7 @@ const cors = require('cors');
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('dist'));
 
 // Setup Server
 const server = app.listen(port, () => {
@@ -28,7 +28,13 @@ const server = app.listen(port, () => {
 });
 
 
+
 // ROUTES //////////////////////////////////////////////
+
+// GET index.html
+app.get('/', function (req, res) {
+  res.sendFile('dist/index.html');
+});
 
 // GET route: projectData
 app.get('/all', sendData);
@@ -36,7 +42,6 @@ app.get('/all', sendData);
 function sendData (request, response){
   response.send(projectData);
 }
-
 
 // POST route: addData
 app.post('/addData', addData);
