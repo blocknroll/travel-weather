@@ -36,6 +36,7 @@ app.get('/', function (req, res) {
   res.status(200).sendFile('dist/index.html');
 });
 
+
 // GET route: projectData
 app.get('/all', sendData);
 // Callback function to complete GET '/all'
@@ -43,15 +44,14 @@ function sendData (request, response){
   response.send(projectData);
 }
 
+
 // POST route: addData
 app.post('/addData', addData);
-
 // Callback function to complete POST '/addData'
 function addData (request, response){
 
   const newData = {
     date: request.body.date,
-    feelings: request.body.feelings,
     temperature: request.body.temperature
   };
 
