@@ -11,7 +11,6 @@ function logWeather(e){
   const WEATHERBIT_API_KEY = process.env.WEATHERBIT_API_KEY;
   const d = new Date();
   const newDate = d.getMonth() + 1 + '.' + d.getDate()+ '.' + d.getFullYear();
-  const feelings = document.querySelector('#feelings').value;
   const city = document.querySelector('#city').value;
 
 
@@ -34,7 +33,7 @@ function logWeather(e){
   ).then(function(weatherbitData){
     // add data - Call Function
     Client.postData('/addData',
-                   {temperature:weatherbitData.data[0].temp, date:newDate, feelings:feelings}
+                   {temperature:weatherbitData.data[0].temp, date:newDate}
     );
   })
   .then(function() {

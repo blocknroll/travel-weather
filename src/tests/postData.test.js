@@ -31,14 +31,12 @@ describe("Test postData method", () => {
     // INPUT
     const input = {
       date: '1.1.2021',
-      feelings: 'mucho bueno!',
       temperature: 42
     };
 
     // OUTPUT
     const output = {
       date: '1.1.2021',
-      feelings: 'mucho bueno!',
       temperature: 42
     };
 
@@ -57,14 +55,12 @@ describe("Test postData method", () => {
     // INPUT
     const input = {
       date: '1.1.2021',
-      feelings: 'mucho bueno!',
       temperature: 42
     };
 
     // OUTPUT
     const output = {
       date: '1.1.2020',
-      feelings: 'many tacos',
       temperature: 100
     };
 

@@ -51,7 +51,6 @@ function addData (request, response){
 
   const newData = {
     date: request.body.date,
-    feelings: request.body.feelings,
     temperature: request.body.temperature
   };
 
