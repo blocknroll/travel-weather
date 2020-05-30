@@ -2,19 +2,18 @@
 
 // CALLBACK function to execute when GENERATE button is clicked
 function logWeather(e){
+  const d = new Date();
+  const newDate = d.getMonth() + 1 + '.' + d.getDate()+ '.' + d.getFullYear();
+  const zip = document.querySelector('#zip').value;
+  const feelings = document.querySelector('#feelings').value;
 
-  const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-  const apiKey = process.env.API_KEY_OPENWX;
-  let d = new Date();
-  let newDate = d.getMonth() + 1 + '.' + d.getDate()+ '.' + d.getFullYear();
-  let zip = document.getElementById('zip').value;
-  let feelings = document.querySelector('#feelings').value;
-
-  Client.getWeather(baseURL, zip, apiKey)
-  .then(function(data){
+  Client.postData( '/openweather', {zip: zip} )
+  .then(function(openWeatherData){
     // add data - Call Function
     Client.postData('/addData',
-            {temperature:data.main.temp, date:newDate, feelings:feelings}
+                   { temperature:openWeatherData.main.temp,
+                     date:newDate,
+                     feelings:feelings }
     );
   })
   .then(function() {
