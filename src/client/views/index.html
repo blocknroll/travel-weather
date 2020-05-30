@@ -15,15 +15,24 @@
             Weather</h1>
       </div>
 
-      <div class="holder zip">
-        <label for="zip">enter zipcode here</label>
-        <input type="text" id="zip" placeholder="54321">
+      <div class="holder city">
+        <label for="city">destination</label>
+        <input type="text" id="city" placeholder="New York">
       </div>
 
-      <div class="holder feel">
-        <label for="feelings">what mood are you feeling?</label>
-        <textarea class="myInput"
-                  id="feelings" placeholder="whatever comes to mind..." rows=1></textarea>
+      <div class="holder day">
+        <label for="day">day</label>
+        <input type="text" id="day" placeholder="14">
+      </div>
+
+      <div class="holder month">
+        <label for="month">month</label>
+        <input type="text" id="month" placeholder="03">
+      </div>
+
+      <div class="holder year">
+        <label for="year">year</label>
+        <input type="text" id="year" placeholder="2021">
       </div>
 
       <div class="holder button">
@@ -31,10 +40,10 @@
       </div>
 
       <div class="holder entry">
-        <div class="title">most recent entry:</div>
-        <div id="date"></div>
+        <div id="results" class="title">Trip Details</div>
+        <div id="date">...</div>
+        <div id="interval"></div>
         <div id="temp"></div>
-        <div id="content"></div>
       </div>
 
     </div>

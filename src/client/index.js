@@ -3,7 +3,10 @@
 import { logWeather } from './js/logWeather';
 import { getWeather } from './js/getWeather';
 import { postData } from './js/postData';
-import { updateUI } from './js/updateUI';
+import { updateUICurrent } from './js/updateUICurrent';
+import { updateUIForecast } from './js/updateUIForecast';
+import { getLatLng } from './js/getLatLng';
+import { countdown } from './js/countdown';
 import './styles/style.scss';
 
 console.log("index.js - client: running");
@@ -15,5 +18,8 @@ export {
   logWeather,
   getWeather,
   postData,
-  updateUI
+  updateUICurrent,
+  updateUIForecast,
+  getLatLng,
+  countdown
 };
