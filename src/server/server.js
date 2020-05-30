@@ -1,4 +1,5 @@
 /*jshint esversion: 9 */
+require('dotenv').config();
 
 // ENDPOINT: Setup empty JS object to act as endpoint for all routes
 let projectData = {};
@@ -10,7 +11,7 @@ const app = express();
 const port = 8081;
 
 /* Middleware*/
-// configure express to use body-parser as middle-ware
+// configure express to use body-parser as middleware
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -27,36 +28,61 @@ const server = app.listen(port, () => {
   console.log(`server running on localhost: ${port}`);
 });
 
+const fetch = require('node-fetch');
 
 
-// ROUTES //////////////////////////////////////////////
 
-// GET index.html
+// ROUTES ////////////////////////////////////////////////////////////////////
+
+// GET: index.html ///////////////////////////////////////////////////////////
 app.get('/', function (req, res) {
   res.status(200).sendFile('dist/index.html');
 });
 
-// GET route: projectData
+
+// GET: projectData //////////////////////////////////////////////////////////
 app.get('/all', sendData);
+
 // Callback function to complete GET '/all'
 function sendData (request, response){
   response.send(projectData);
 }
 
-// POST route: addData
+
+// POST: OPENWEATHER_API /////////////////////////////////////////////////////
+app.post('/openweather', getOpenWeather);
+
+const OPENWEATHER_baseURL = 'http://api.openweathermap.org/data/2.5/';
+const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
+
+// Callback function to complete POST '/openweather'
+async function getOpenWeather (req, res) {
+  const fullZip = 'weather?zip=' + req.body.zip;
+  const relativeURL = fullZip + OPENWEATHER_API_KEY;
+  const fullURL = new URL(relativeURL, OPENWEATHER_baseURL);
+  const finalURL = fullURL.href;
+
+  const response = await fetch(finalURL);
+  try {
+    const openWeatherData = await response.json();
+    res.send(openWeatherData);
+  } catch(error) {
+    console.log('getOpenWeather error', error);
+  }
+}
+
+
+// POST: addData /////////////////////////////////////////////////////////////
 app.post('/addData', addData);
 
 // Callback function to complete POST '/addData'
 function addData (request, response){
-
   const newData = {
-    date: request.body.date,
-    feelings: request.body.feelings,
-    temperature: request.body.temperature
+                    temperature: request.body.temperature,
+                    date: request.body.date,
+                    feelings: request.body.feelings
   };
-
   Object.assign(projectData, newData);
-
   response.send(newData);
   console.log(projectData);
 }
