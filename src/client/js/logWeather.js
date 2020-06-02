@@ -52,13 +52,16 @@ function logWeather() {
                                                     picData.hits[0].webformatURL +
                                                     '" alt="a picture of ' +
                                                     city + '">';
-        // add Pixabay logo
-        const pixabayLogo = new Image();
-        pixabayLogo.src = pixabayLogoSrc;
-        pixabayLogo.alt = 'Pixabay logo';
-        document.querySelector('#pixabayLink').appendChild(pixabayLogo);
-        document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
-        document.querySelector('#pixabayLink').setAttribute('target','_blank');
+        // add Pixabay logo - only if not already added
+        const href = document.querySelector('#pixabayLink').getAttribute('href');
+        if (href === '#') {
+          const pixabayLogo = new Image();
+          pixabayLogo.src = pixabayLogoSrc;
+          pixabayLogo.alt = 'Pixabay logo';
+          document.querySelector('#pixabayLink').appendChild(pixabayLogo);
+          document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
+          document.querySelector('#pixabayLink').setAttribute('target','_blank');
+        }
       });
     });
 
@@ -93,13 +96,16 @@ function logWeather() {
                                                     picData.hits[0].webformatURL +
                                                     '" alt="a picture of ' +
                                                     city + '">';
-        // add Pixabay logo
-        const pixabayLogo = new Image();
-        pixabayLogo.src = pixabayLogoSrc;
-        pixabayLogo.alt = 'Pixabay logo';
-        document.querySelector('#pixabayLink').appendChild(pixabayLogo);
-        document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
-        document.querySelector('#pixabayLink').setAttribute('target','_blank');
+        // add Pixabay logo - only if not already added
+        const href = document.querySelector('#pixabayLink').getAttribute('href');
+        if (href === '#') {
+          const pixabayLogo = new Image();
+          pixabayLogo.src = pixabayLogoSrc;
+          pixabayLogo.alt = 'Pixabay logo';
+          document.querySelector('#pixabayLink').appendChild(pixabayLogo);
+          document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
+          document.querySelector('#pixabayLink').setAttribute('target','_blank');
+        }
       });
     });
   }
