@@ -1,5 +1,7 @@
 /*jshint esversion: 8 */
 
+import pixabayLogoSrc from '../media/pixabay-logo.svg';
+
 // CALLBACK function to execute when GENERATE button is clicked
 function logWeather() {
 
@@ -50,6 +52,13 @@ function logWeather() {
                                                     picData.hits[0].webformatURL +
                                                     '" alt="a picture of ' +
                                                     city + '">';
+        // add Pixabay logo
+        const pixabayLogo = new Image();
+        pixabayLogo.src = pixabayLogoSrc;
+        pixabayLogo.alt = 'Pixabay logo';
+        document.querySelector('#pixabayLink').appendChild(pixabayLogo);
+        document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
+        document.querySelector('#pixabayLink').setAttribute('target','_blank');
       });
     });
 
@@ -84,6 +93,13 @@ function logWeather() {
                                                     picData.hits[0].webformatURL +
                                                     '" alt="a picture of ' +
                                                     city + '">';
+        // add Pixabay logo
+        const pixabayLogo = new Image();
+        pixabayLogo.src = pixabayLogoSrc;
+        pixabayLogo.alt = 'Pixabay logo';
+        document.querySelector('#pixabayLink').appendChild(pixabayLogo);
+        document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
+        document.querySelector('#pixabayLink').setAttribute('target','_blank');
       });
     });
   }
