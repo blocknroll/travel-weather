@@ -1,7 +1,7 @@
 /*jshint esversion: 8 */
 
 // CALLBACK function to execute when GENERATE button is clicked
-function logWeather(){
+function logWeather() {
 
   const d = new Date();
   const todayDate = d.getFullYear() + '-' + d.getMonth() + 1 + '-' + d.getDate();
@@ -41,6 +41,16 @@ function logWeather(){
       .then(function() {
         Client.updateUICurrent();
       });
+    })
+    .then(function() {
+      Client.postData( '/getPic', {city: city} )
+      .then(function(picData) {
+        // add the returned 'picData' to index.html
+        document.querySelector('#pic').innerHTML = '<img src="' +
+                                                    picData.hits[0].webformatURL +
+                                                    '" alt="a picture of ' +
+                                                    city + '">';
+      });
     });
 
   } else { //////////////////////////////////////////////////////////////////
@@ -64,6 +74,16 @@ function logWeather(){
       })
       .then(function() {
         Client.updateUIForecast();
+      });
+    })
+    .then(function() {
+      Client.postData( '/getPic', {city: city} )
+      .then(function(picData) {
+        // add the returned 'picData' to index.html
+        document.querySelector('#pic').innerHTML = '<img src="' +
+                                                    picData.hits[0].webformatURL +
+                                                    '" alt="a picture of ' +
+                                                    city + '">';
       });
     });
   }

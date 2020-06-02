@@ -1,4 +1,5 @@
 /*jshint esversion: 9 */
+
 require('dotenv').config();
 
 // ENDPOINT: Setup empty JS object to act as endpoint for all routes
@@ -173,4 +174,30 @@ function addData (req, res){
   Object.assign(projectData, newData);
   res.send(newData);
   console.log(projectData);
+}
+
+
+
+// POST:  /getPic  from PIXABAY_API  /////////////////////////////////////////
+
+// takes 2 arguments: URL, callback function
+app.post('/getPic', getPic);
+
+async function getPic (req, res) {
+  const PIXABAY_baseURL = 'https://pixabay.com/api/';
+  const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY;
+  const city = req.body.city;
+  const options = '&image_type=photo&orientation=horizontal&category=places&per_page=3';
+  const finalURL = PIXABAY_baseURL + PIXABAY_API_KEY + city + options;
+
+  const response = await fetch(finalURL);
+  try {
+    const picData = await response.json();
+    console.log(picData);
+    console.log(picData.hits[0].webformatURL);
+    // 'res' and 'picData' could be named anything
+    res.send(picData);
+  } catch(error) {
+    console.log('getPic error', error);
+  }
 }
