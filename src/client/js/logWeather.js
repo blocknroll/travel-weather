@@ -1,7 +1,5 @@
 /*jshint esversion: 8 */
 
-import pixabayLogoSrc from '../media/pixabay-logo.svg';
-
 // CALLBACK function to execute when GENERATE button is clicked
 function logWeather() {
 
@@ -41,27 +39,16 @@ function logWeather() {
         );
       })
       .then(function() {
+        // fetch the newly posted data and update th UI with the temp
         Client.updateUICurrent();
       });
     })
     .then(function() {
+      // pass the 'city' input into /getPic and request images from Pixabay
       Client.postData( '/getPic', {city: city} )
       .then(function(picData) {
-        // add the returned 'picData' to index.html
-        document.querySelector('#pic').innerHTML = '<img src="' +
-                                                    picData.hits[0].webformatURL +
-                                                    '" alt="a picture of ' +
-                                                    city + '">';
-        // add Pixabay logo - only if not already added
-        const href = document.querySelector('#pixabayLink').getAttribute('href');
-        if (href === '#') {
-          const pixabayLogo = new Image();
-          pixabayLogo.src = pixabayLogoSrc;
-          pixabayLogo.alt = 'Pixabay logo';
-          document.querySelector('#pixabayLink').appendChild(pixabayLogo);
-          document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
-          document.querySelector('#pixabayLink').setAttribute('target','_blank');
-        }
+        // pass returned 'picData' into updateUI - add the pic and Pixabay logo
+        Client.updateUIPic(picData);
       });
     });
 
@@ -89,23 +76,11 @@ function logWeather() {
       });
     })
     .then(function() {
+      // pass the 'city' input into /getPic and request images from Pixabay
       Client.postData( '/getPic', {city: city} )
       .then(function(picData) {
-        // add the returned 'picData' to index.html
-        document.querySelector('#pic').innerHTML = '<img src="' +
-                                                    picData.hits[0].webformatURL +
-                                                    '" alt="a picture of ' +
-                                                    city + '">';
-        // add Pixabay logo - only if not already added
-        const href = document.querySelector('#pixabayLink').getAttribute('href');
-        if (href === '#') {
-          const pixabayLogo = new Image();
-          pixabayLogo.src = pixabayLogoSrc;
-          pixabayLogo.alt = 'Pixabay logo';
-          document.querySelector('#pixabayLink').appendChild(pixabayLogo);
-          document.querySelector('#pixabayLink').setAttribute('href','https://pixabay.com/');
-          document.querySelector('#pixabayLink').setAttribute('target','_blank');
-        }
+        // pass returned 'picData' into updateUI - add the pic and Pixabay logo
+        Client.updateUIPic(picData);
       });
     });
   }

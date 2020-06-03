@@ -5,6 +5,7 @@ import { countdown } from './js/countdown';
 import { postData } from './js/postData';
 import { updateUICurrent } from './js/updateUICurrent';
 import { updateUIForecast } from './js/updateUIForecast';
+import { updateUIPic } from './js/updateUIPic';
 import './styles/style.scss';
 
 console.log("index.js - client: running");
@@ -17,5 +18,6 @@ export {
   countdown,
   postData,
   updateUICurrent,
-  updateUIForecast
+  updateUIForecast,
+  updateUIPic
 };
