@@ -37,10 +37,8 @@ function logWeather() {
                        {temperature:weatherCurrentData.data[0].temp, date:fullDate}
         // 'temperature' could be named anything. 'temp' comes from weatherbit
         );
-      })
-      .then(function() {
-        // fetch the newly posted data and update th UI with the temp
-        Client.updateUICurrent();
+        // update the UI with the returned weather data
+        Client.updateUICurrent(weatherCurrentData);
       });
     })
     .then(function() {
@@ -70,8 +68,7 @@ function logWeather() {
                        {temperature:weatherForecastData.data[15].temp, date:fullDate}
         // 'temperature' could be named anything. 'temp' comes from weatherbit
         );
-      })
-      .then(function() {
+        // update the UI with the returned weather data
         Client.updateUIForecast();
       });
     })

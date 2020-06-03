@@ -194,7 +194,8 @@ async function getPic (req, res) {
   try {
     const picData = await response.json();
     console.log(picData);
-    console.log(picData.hits[0].webformatURL);
+    // console.log(picData.hits[0].webformatURL);
+
     // 'res' and 'picData' could be named anything
     res.send(picData);
   } catch(error) {
