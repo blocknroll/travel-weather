@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'fonts';
 
 body {
   background: $blue-darker;
@@ -9,7 +10,7 @@ body {
   align-items: center;
   color: black;
   display: grid;
-  font-family: 'Work Sans', sans-serif;
+  font-family: $base;
   font-size: 1.5em;
   grid-row-gap: 20px;
   margin: 10px auto;
@@ -60,7 +61,7 @@ input {
     border: none;
     color: rgb(179,179,179);
     display:block;
-    font-family: 'Work Sans', sans-serif;
+    font-family: $base;
     font-size: 1.0em;
     font-weight: 200;
     text-align: center;
@@ -69,7 +70,7 @@ input {
 textarea {
   border: none;
   color: rgb(179,179,179);
-  font-family: 'Work Sans', sans-serif;
+  font-family: $base;
   font-size: 0.9em;
   font-weight: 200;
   resize: none;

@@ -7,6 +7,8 @@ import { updateUICurrent } from './js/updateUICurrent';
 import { updateUIForecast } from './js/updateUIForecast';
 import { updateUIPic } from './js/updateUIPic';
 import './styles/style.scss';
+import './styles/colors.scss';
+import './styles/fonts.scss';
 
 console.log("index.js - client: running");
 
