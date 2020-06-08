@@ -25,6 +25,14 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       }
     ],
   },
@@ -33,7 +41,9 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.OPENWEATHER_API_KEY": JSON.stringify(process.env.OPENWEATHER_API_KEY)
+      "process.env.OPENWEATHER_API_KEY": JSON.stringify(process.env.OPENWEATHER_API_KEY),
+      "process.env.GEONAMES_API_KEY": JSON.stringify(process.env.GEONAMES_API_KEY),
+      "process.env.WEATHERBIT_API_KEY": JSON.stringify(process.env.WEATHERBIT_API_KEY)
     }),
     new HtmlWebPackPlugin({
       template: "./src/client/views/index.html",

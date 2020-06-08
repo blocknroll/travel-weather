@@ -1,25 +1,23 @@
 /*jshint esversion: 8 */
 
 import { logWeather } from './js/logWeather';
-import { getWeather } from './js/getWeather';
+import { countdown } from './js/countdown';
 import { postData } from './js/postData';
 import { updateUICurrent } from './js/updateUICurrent';
 import { updateUIForecast } from './js/updateUIForecast';
-import { getLatLng } from './js/getLatLng';
-import { countdown } from './js/countdown';
+import { updateUIPic } from './js/updateUIPic';
 import './styles/style.scss';
 
 console.log("index.js - client: running");
 
-// GENERATE button - add event listener
+// GENERATE button: add event listener. After a click, calls 'logWeather'
 document.querySelector('#generate').addEventListener('click', logWeather);
 
 export {
   logWeather,
-  getWeather,
+  countdown,
   postData,
   updateUICurrent,
   updateUIForecast,
-  getLatLng,
-  countdown
+  updateUIPic
 };
