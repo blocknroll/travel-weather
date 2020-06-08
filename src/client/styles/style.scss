@@ -1,5 +1,7 @@
+@import 'colors';
+
 body {
-  background: rgb(201, 220, 250);
+  background: $blue-darker;
   margin: 0;
 }
 
@@ -23,7 +25,7 @@ body {
 }
 
 .entry {
-  background: rgb(153, 185, 234);
+  background: $blue-lighter;
   margin-top: 20px;
   padding: 10px 0;
 }
@@ -34,7 +36,7 @@ body {
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 h1 {
-  color: white;
+  color: $white;
   font-size: 1.5em;
   font-weight: 900;
   letter-spacing: 0.3em;
@@ -54,7 +56,7 @@ label {
 }
 
 input {
-    background:white;
+    background: $white;
     border: none;
     color: rgb(179,179,179);
     display:block;
@@ -95,9 +97,9 @@ button:focus {
 
 
 button {
-    background: #3b4a6b;
+    background: $blue-darkest;
     border: none;
-    color: white;
+    color: $white;
     font-size: 1.0em;
     font-weight: 100;
     height: 60px;
