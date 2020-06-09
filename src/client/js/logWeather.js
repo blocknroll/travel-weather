@@ -21,6 +21,9 @@ function logWeather() {
 
   if (daysToTrip < 8) { /////////////////////////////////////////////////////
 
+    // add city to index.html
+    document.querySelector('#city-result').innerHTML = city;
+
     // add departure date to index.html
     document.querySelector('#date').innerHTML = 'departure date: ' + fullDate;
 
@@ -51,6 +54,9 @@ function logWeather() {
     });
 
   } else { //////////////////////////////////////////////////////////////////
+
+    // add city to index.html
+    document.querySelector('#city-result').innerHTML = city;
 
     // add departure date to index.html
     document.querySelector('#date').innerHTML = 'departure date: ' + fullDate;

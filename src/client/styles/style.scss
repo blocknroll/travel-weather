@@ -3,8 +3,194 @@
 
 body {
   background: $blue-darker;
+  font-family: $base;
   margin: 0;
 }
+
+.header {
+  background-color: $blue-darkest;
+  display: flex;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.main {
+  display: grid;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr;
+  margin: 0 18px;
+}
+
+.travel-weather-logo {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.user-input {
+  background-color: $blue-lighter;
+  color: $blue-darkest;
+  display: grid;
+  font-size: 1.3em;
+  grid-row-gap: 10px;
+  margin: 0 auto;
+  padding: 10px 0 0;
+  text-align: center;
+  width: 340px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  margin: 0 20px;
+
+}
+
+label {
+  margin: 0 auto 5px;
+}
+
+input {
+  background: $white;
+  border: 0;
+  font-family: $base;
+  font-size: 1.0em;
+  padding: 0;
+  text-align: center;
+
+  // Style for Placeholder Text
+  &::placeholder { // Firefox, Chrome, Opera
+    color: $blue-medium;
+    font-weight: 100;
+  }
+
+  &::-ms-input-placeholder { // Internet Explorer 10-11
+    color: $blue-medium;
+    font-weight: 100;
+  }
+
+  &::-ms-input-placeholder { // Microsoft Edge */
+    color: $blue-medium;
+    font-weight: 100;
+  }
+}
+
+.date-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  input {
+    width: 92px;
+  }
+}
+
+button {
+  background: $blue-darkest;
+  border: 0;
+  color: $white;
+  font-family: $base;
+  font-size: 1.0em;
+  font-weight: 300;
+  height: 40px;
+  margin: 10px 0 20px;
+  padding: 0;
+
+  &:hover {
+    color: $blue-darker;
+  }
+}
+
+.results-title {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#pic {
+  margin: 0 20px;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+#city-result {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+#icon {
+  img {
+    height: 60px;
+    margin: -10px auto 10px;
+  }
+}
+
+#conditions {
+  text-transform: lowercase;
+}
+
+.footer {
+  background-color: $blue-darkest;
+  bottom: 0;
+  color: $blue-darker;
+  display: grid;
+  font-weight: 200;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr;
+  padding: 20px 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  p {
+    margin: 0 auto 5px;
+  }
+
+  img {
+    height: 30px;
+  }
+
+  a {
+    color: $blue-darker;
+    font-size: 1.3em;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      color: $blue-lighter;
+    }
+  }
+
+  .pixabay-svg {
+    height: 30px;
+    width: 140px;
+
+    path {
+      fill: $blue-darker;
+    }
+
+    &:hover {
+      path {
+        fill: $blue-lighter;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// EXISTING /////////////////////////////////////////////////////////////
 
 .app {
   align-items: center;
@@ -19,12 +205,6 @@ body {
   width: 80vw;
 }
 
-.holder {
-  display: flex;
-  flex-direction: column;
-  font-weight: 200;
-}
-
 .entry {
   background: $blue-lighter;
   margin-top: 20px;
@@ -35,7 +215,7 @@ body {
   padding: 4px;
 }
 
-/*  Basic Styling To Override Default For Basic HTML Elements */
+//  Basic Styling To Override Default For Basic HTML Elements */
 h1 {
   color: $white;
   font-size: 1.5em;
@@ -51,22 +231,6 @@ h1 {
   text-transform: uppercase;
 }
 
-label {
-    display:block;
-    margin: 0 auto 5px;
-}
-
-input {
-    background: $white;
-    border: none;
-    color: rgb(179,179,179);
-    display:block;
-    font-family: $base;
-    font-size: 1.0em;
-    font-weight: 200;
-    text-align: center;
-}
-
 textarea {
   border: none;
   color: rgb(179,179,179);
@@ -76,35 +240,11 @@ textarea {
   resize: none;
   text-align: center;
 }
-/* Reset style for HTML element on active to have no border*/
+
+// Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */
-    color: rgb(179,179,179);
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: rgb(179,179,179);
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: rgb(179,179,179);
-}
-
-
-button {
-    background: $blue-darkest;
-    border: none;
-    color: $white;
-    font-size: 1.0em;
-    font-weight: 100;
-    height: 60px;
-    letter-spacing: 0.05em;
-    margin-top: 20px;
-    text-transform: uppercase;
+  outline: none;
 }
