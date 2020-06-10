@@ -21,9 +21,6 @@ async function updateUICurrent(weatherCurrentData) {
     const description = weatherCurrentData.data[0].weather.description;
     document.querySelector('#conditions').innerHTML = 'conditions: ' +
                                                         description;
-    // document.querySelector('#conditions').innerHTML = '<p>conditions:<br>' +
-    //                                                     description + '</p>';
-
   } catch(error) {
     console.log('updateUI error', error);
   }

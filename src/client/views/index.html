@@ -13,51 +13,55 @@
 
   <body>
 
-    <div class="header">
+    <header>
       <img class="travel-weather-logo" alt="Travel Weather logo">
-    </div>
+    </header>
 
 
-    <div class="main">
+    <!-- FLEXBOX for sticky footer layout-->
+    <main class="content">
 
-      <div class="user-input">
+      <!-- GRID layout inside the FLEXBOX -->
+      <div class="css-grid-layout">
 
-        <div class="box city">
-          <label for="city">destination</label>
-          <input type="text" id="city" placeholder="San Francisco">
-        </div>
-
-        <div class="box date">
-          <label for="date-input">departure</label>
-          <div class="date-input">
-            <input type="text" id="month" placeholder="mm">
-            <input type="text" id="day" placeholder="dd">
-            <input type="text" id="year" placeholder="yyyy">
+        <section class="box">
+          <div class="part city">
+            <label for="city">destination</label>
+            <input type="text" id="city" placeholder="San Francisco">
           </div>
-        </div>
 
-        <div class="box button">
-          <button id="generate" type="submit">get weather</button>
-        </div>
+          <div class="part date">
+            <label for="date-input">departure</label>
+            <div class="date-input">
+              <input type="text" id="month" placeholder="mm">
+              <input type="text" id="day" placeholder="dd">
+              <input type="text" id="year" placeholder="yyyy">
+            </div>
+          </div>
+
+          <div class="part button">
+            <button id="generate" type="submit">get weather</button>
+          </div>
+        </section>
+
+
+        <section class="box results">
+          <div class="results-title">Trip Details</div>
+          <div id="pic"></div>
+          <div id="city-result"></div>
+          <div id="date">...</div>
+          <div id="interval"></div>
+          <div id="temp"></div>
+          <div id="conditions"></div>
+          <div id="icon"></div>
+        </section>
 
       </div>
 
-
-      <div class="user-input">
-        <div class="results-title">Trip Details</div>
-        <div id="pic"></div>
-        <div id="city-result"></div>
-        <div id="date">...</div>
-        <div id="interval"></div>
-        <div id="temp"></div>
-        <div id="conditions"></div>
-        <div id="icon"></div>
-      </div>
-
-    </div>
+    </main>
 
 
-    <div class="footer">
+    <footer class="footer">
 
       <div>
         <p>weather courtesy of:</p>
@@ -90,14 +94,14 @@
                 <path d="m238.9,467.91c3.2725-0.0646,6.411,2.0793,7.6222,5.1058,0.63229,1.4057,0.62343,2.963,0.60314,4.472v6.91c-2.9161-0.01-5.8331,0.0201-8.7487-0.0157-3.3523-0.16361-6.4178-2.608-7.3775-5.8156-0.87985-2.7888-0.14883-6.0271,1.922-8.1097,1.547-1.6003,3.7454-2.5681,5.9788-2.5468zm4.9576,13.22c-0.014-1.8333,0.0294-3.6684-0.0241-5.5004-0.19325-2.4562-2.4685-4.514-4.9336-4.4508-2.3436-0.0566-4.553,1.7616-4.9197,4.0819-0.42957,2.2266,0.84881,4.6528,2.9737,5.4838,1.3088,0.57081,2.7544,0.33544,4.1378,0.38549,0.92196,0.00001,1.8439,0.00001,2.7659,0.00001z"/>
 
                 <path d="m265.11,467.95c-0.007,5.0876,0.0132,10.176-0.0101,15.263-0.11859,4.004-3.5594,7.6027-7.5766,7.8119-0.7631,0.0404-1.5278,0.0158-2.2917,0.0226v-3.2677c1.3944-0.007,2.8862,0.13456,4.1212-0.65516,1.5426-0.86529,2.523-2.6105,2.4882-4.3753-2.8966,2.3356-7.3871,2.2143-10.204-0.19651-2.0523-1.6568-3.1738-4.322-3.0154-6.9447v-7.6578h3.2677c0.015,2.9107-0.0307,5.8234,0.0241,8.7328,0.17752,2.3961,2.314,4.4238,4.7151,4.4811,2.4332,0.18697,4.7752-1.7026,5.1382-4.1097,0.14646-1.44,0.0425-2.8946,0.0738-4.3411v-4.7632c1.0896-0.00007,2.1792-0.00014,3.2689-0.00021z"/>
-
               </g>
             </g>
           </svg>
         </a>
       </div>
 
-    </div>
+    </footer>
+
 
   </body>
 </html>

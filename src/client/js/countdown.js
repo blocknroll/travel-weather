@@ -2,13 +2,13 @@
 
 function countdown(daysToTrip) {
   if (daysToTrip < 0) {
-    document.querySelector('#interval').innerHTML = 'days until trip: TODAY IS THE DAY!!!';
+    document.querySelector('#interval').innerHTML = 'departing: TODAY!!!';
   } else if (daysToTrip < 1) {
-    document.querySelector('#interval').innerHTML = 'days until trip: leaving tomorrow!!!';
+    document.querySelector('#interval').innerHTML = 'departing: TOMORROW!!!';
   } else if (daysToTrip < 2 ) {
-    document.querySelector('#interval').innerHTML = 'days until trip: ' + daysToTrip + ' more day!!!';
+    document.querySelector('#interval').innerHTML = 'depart in: ' + daysToTrip + ' more day!!!';
   } else {
-    document.querySelector('#interval').innerHTML = 'days until trip: ' + daysToTrip + ' more days!';
+    document.querySelector('#interval').innerHTML = 'depart in: ' + daysToTrip + ' more days!';
   }
 }
 

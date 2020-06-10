@@ -1,6 +1,6 @@
 /*jshint esversion: 8 */
 
-async function updateUIForecast() {
+async function updateUIForecast(weatherForecastData) {
   const request = await fetch('/all');
   try{
     const allData = await request.json();
@@ -18,8 +18,8 @@ async function updateUIForecast() {
 
     // add weather description
     const description = weatherForecastData.data[0].weather.description;
-    document.querySelector('#conditions').innerHTML = '<p>conditions: ' +
-                                                        description + '</p>';
+    document.querySelector('#conditions').innerHTML = 'conditions: ' +
+                                                        description;
   } catch(error) {
     console.log('updateUI error', error);
   }

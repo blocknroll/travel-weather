@@ -1,49 +1,59 @@
 @import 'colors';
 @import 'fonts';
 
+html {
+  height: 100%; // flex + grid style
+}
+
 body {
   background: $blue-darker;
+  display: flex;  // flex style
+  flex-direction: column;  // flex style
   font-family: $base;
+  height: 100vh; // flex style. Avoid the IE 10-11 `min-height` bug
   margin: 0;
 }
 
-.header {
+header {
   background-color: $blue-darkest;
   display: flex;
   height: 80px;
   margin: 0 auto 20px;
-}
-
-.main {
-  display: grid;
-  grid-row-gap: 20px;
-  grid-template-columns: 1fr;
-  margin: 0 18px;
+  width: 100%;
 }
 
 .travel-weather-logo {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 300px;
 }
 
-.user-input {
+.content {
+  flex: 1 0 auto;  // flex style. Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size
+}
+
+.css-grid-layout {
+  display: grid;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+.box {
   background-color: $blue-lighter;
   color: $blue-darkest;
   display: grid;
   font-size: 1.3em;
   grid-row-gap: 10px;
   margin: 0 auto;
-  padding: 10px 0 0;
+  padding: 10px 0 20px;
   text-align: center;
   width: 340px;
 }
 
-.box {
+.part {
   display: flex;
   flex-direction: column;
   font-weight: 300;
   margin: 0 20px;
-
 }
 
 label {
@@ -93,12 +103,16 @@ button {
   font-size: 1.0em;
   font-weight: 300;
   height: 40px;
-  margin: 10px 0 20px;
+  margin: 10px 0 0;
   padding: 0;
 
   &:hover {
     color: $blue-darker;
   }
+}
+
+.results {
+  display: none;
 }
 
 .results-title {
@@ -120,27 +134,29 @@ button {
   text-transform: capitalize;
 }
 
-#icon {
-  img {
-    height: 60px;
-    margin: -10px auto 10px;
-  }
-}
-
 #conditions {
   text-transform: lowercase;
 }
 
-.footer {
+#icon {
+  margin: 0 auto -10px;
+
+  img {
+    height: 60px;
+    margin: -10px auto 0;
+  }
+}
+
+footer {
   background-color: $blue-darkest;
-  bottom: 0;
   color: $blue-darker;
   display: grid;
+  flex-shrink: 0;  // flex style. Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size
   font-weight: 200;
   grid-row-gap: 20px;
   grid-template-columns: 1fr;
+  margin: 20px 0 0;
   padding: 20px 0;
-  position: absolute;
   text-align: center;
   width: 100%;
 
@@ -177,42 +193,6 @@ button {
       }
     }
   }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-// EXISTING /////////////////////////////////////////////////////////////
-
-.app {
-  align-items: center;
-  color: black;
-  display: grid;
-  font-family: $base;
-  font-size: 1.5em;
-  grid-row-gap: 20px;
-  margin: 10px auto;
-  max-width: 360px;
-  text-align: center;
-  width: 80vw;
-}
-
-.entry {
-  background: $blue-lighter;
-  margin-top: 20px;
-  padding: 10px 0;
-}
-
-.entry div {
-  padding: 4px;
 }
 
 //  Basic Styling To Override Default For Basic HTML Elements */
@@ -229,16 +209,6 @@ h1 {
                -4px 3px 1px rgb(51, 51, 51), -3px 4px 1px rgb(77, 77, 77),
                -5px 4px 1px rgb(51, 51, 51), -4px 5px 1px rgb(77, 77, 77);
   text-transform: uppercase;
-}
-
-textarea {
-  border: none;
-  color: rgb(179,179,179);
-  font-family: $base;
-  font-size: 0.9em;
-  font-weight: 200;
-  resize: none;
-  text-align: center;
 }
 
 // Reset style for HTML element on active to have no border*/
