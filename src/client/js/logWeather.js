@@ -15,11 +15,17 @@ function logWeather() {
   const interval = tripDate - now;
   const daysToTrip = Math.floor( interval / (1000 * 60 * 60 * 24) );
 
+  // display the results box
+  document.querySelector('.results').style.display = 'grid';
 
+  // start the countdown and add to index.html
   Client.countdown(daysToTrip);
 
 
   if (daysToTrip < 8) { /////////////////////////////////////////////////////
+
+    // add city to index.html
+    document.querySelector('#city-result').innerHTML = city;
 
     // add departure date to index.html
     document.querySelector('#date').innerHTML = 'departure date: ' + fullDate;
@@ -52,6 +58,9 @@ function logWeather() {
 
   } else { //////////////////////////////////////////////////////////////////
 
+    // add city to index.html
+    document.querySelector('#city-result').innerHTML = city;
+
     // add departure date to index.html
     document.querySelector('#date').innerHTML = 'departure date: ' + fullDate;
 
@@ -69,7 +78,7 @@ function logWeather() {
         // 'temperature' could be named anything. 'temp' comes from weatherbit
         );
         // update the UI with the returned weather data
-        Client.updateUIForecast();
+        Client.updateUIForecast(weatherForecastData);
       });
     })
     .then(function() {
