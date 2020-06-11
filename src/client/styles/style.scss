@@ -2,13 +2,13 @@
 @import 'fonts';
 
 html {
-  height: 100%; // flex + grid style
+  height: 100%; // flex & grid style
 }
 
 body {
   background: $blue-darker;
-  display: flex;  // flex style
-  flex-direction: column;  // flex style
+  display: flex;
+  flex-direction: column;
   font-family: $base;
   height: 100vh; // flex style. Avoid the IE 10-11 `min-height` bug
   margin: 0;
@@ -42,8 +42,11 @@ header {
   color: $blue-darkest;
   display: grid;
   font-size: 1.3em;
+  font-weight: 300;
   grid-row-gap: 10px;
-  margin: 0 auto;
+  justify-self: center;
+  margin: 0 20px;
+  max-width: 600px;
   padding: 10px 0 20px;
   text-align: center;
   width: 340px;
@@ -52,7 +55,6 @@ header {
 .part {
   display: flex;
   flex-direction: column;
-  font-weight: 300;
   margin: 0 20px;
 }
 
@@ -65,8 +67,10 @@ input {
   border: 0;
   font-family: $base;
   font-size: 1.0em;
+  font-weight: 400;
   padding: 0;
   text-align: center;
+  width: 100%;
 
   // Style for Placeholder Text
   &::placeholder { // Firefox, Chrome, Opera
@@ -88,11 +92,6 @@ input {
 .date-input {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  input {
-    width: 92px;
-  }
 }
 
 button {
