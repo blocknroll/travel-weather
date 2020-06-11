@@ -50,6 +50,11 @@ header {
   padding: 10px 0 20px;
   text-align: center;
   width: 340px;
+
+  @media (min-width: 740px) {
+    max-width: 700px;
+    width: 700px;
+  }
 }
 
 .part {
@@ -114,13 +119,29 @@ button {
   display: none;
 }
 
+@media (min-width: 740px) {
+  .results-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .results-title {
   font-weight: 500;
   text-transform: uppercase;
 }
 
+.results-text {
+  display: grid;
+  grid-row-gap: 10px;
+
+  @media (min-width: 740px) {
+    margin: 0 20px 0 0;
+  }
+}
+
 #pic {
-  margin: 0 20px;
+  margin: 0 20px 10px;
 
   img {
     height: auto;
