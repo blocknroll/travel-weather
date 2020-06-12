@@ -22,9 +22,27 @@ module.exports = {
         exclude: /node_modules/,
         loader: "babel-loader"
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+      // },
       {
-        test: /\.scss$/,
-        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -37,7 +55,8 @@ module.exports = {
     ],
   },
   optimization: {
-    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    // minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({ cssProcessorOptions: { map: { inline: false, annotation: true, } } })],
   },
   plugins: [
     new webpack.DefinePlugin({

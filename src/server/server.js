@@ -71,9 +71,9 @@ async function getOpenWeather (req, res) {
   const fullURL = new URL(relativeURL, OPENWEATHER_baseURL);
   const finalURL = fullURL.href;
 
-  const response = await fetch(finalURL);
+  const openWeatherResponse = await fetch(finalURL);
   try {
-    const openWeatherData = await response.json();
+    const openWeatherData = await openWeatherResponse.json();
     // 'res' and 'openWeatherData' could be named anything
     res.send(openWeatherData);
   } catch(error) {
@@ -94,9 +94,9 @@ async function getLatLng (req, res) {
   const city = req.body.city;
   const finalURL = GEONAMES_baseURL+city+GEONAMES_API_KEY;
 
-  const response = await fetch(finalURL);
+  const geonamesResponse = await fetch(finalURL);
   try {
-    const latLngData = await response.json();
+    const latLngData = await geonamesResponse.json();
     console.log(city);
     console.log('lat: ' + latLngData.address.lat + '  ' +
                 'lon: ' + latLngData.address.lng);
@@ -121,9 +121,9 @@ async function getWeatherCurrent (req, res) {
   const lon = req.body.latLngData.address.lng;
   const finalURL = WEATHERBIT_CURRENT_baseURL+lat+'&lon='+lon+WEATHERBIT_API_KEY;
 
-  const response = await fetch(finalURL);
+  const weatherbitResponse = await fetch(finalURL);
   try {
-    const weatherCurrentData = await response.json();
+    const weatherCurrentData = await weatherbitResponse.json();
     console.log(weatherCurrentData);
     // 'res' and 'weatherCurrentData' could be named anything
     res.send(weatherCurrentData);
@@ -146,9 +146,9 @@ async function getWeatherForecast (req, res) {
   const lon = req.body.latLngData.address.lng;
   const finalURL = WEATHERBIT_FORECAST_baseURL+lat+'&lon='+lon+WEATHERBIT_API_KEY;
 
-  const response = await fetch(finalURL);
+  const weatherbitResponse = await fetch(finalURL);
   try {
-    const weatherForecastData = await response.json();
+    const weatherForecastData = await weatherbitResponse.json();
     console.log(weatherForecastData);
     // 'res' and 'weatherForecastData' could be named anything
     res.send(weatherForecastData);
@@ -190,9 +190,9 @@ async function getPic (req, res) {
   const options = '&image_type=photo&orientation=horizontal&category=places&per_page=3';
   const finalURL = PIXABAY_baseURL + PIXABAY_API_KEY + city + options;
 
-  const response = await fetch(finalURL);
+  const pixabayResponse = await fetch(finalURL);
   try {
-    const picData = await response.json();
+    const picData = await pixabayResponse.json();
     console.log(picData);
     // console.log(picData.hits[0].webformatURL);
 
