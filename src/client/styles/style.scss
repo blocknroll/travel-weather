@@ -140,7 +140,7 @@ button {
   }
 }
 
-#pic {
+.pic {
   margin: 0 20px 10px;
 
   img {
@@ -149,16 +149,16 @@ button {
   }
 }
 
-#city-result {
+.city-result {
   font-weight: 500;
   text-transform: capitalize;
 }
 
-#conditions {
+.conditions {
   text-transform: lowercase;
 }
 
-#icon {
+.icon {
   margin: 0 auto -10px;
 
   img {

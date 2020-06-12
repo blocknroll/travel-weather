@@ -17,7 +17,7 @@ const travelWeatherLogo = document.querySelector('.travel-weather-logo');
 travelWeatherLogo.src = travelWeatherLogoSrc;
 
 // GENERATE button: add event listener. After a click, calls 'logWeather'
-document.querySelector('#generate').addEventListener('click', logWeather);
+document.querySelector('.generate').addEventListener('click', logWeather);
 
 export {
   logWeather,
