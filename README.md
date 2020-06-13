@@ -20,19 +20,21 @@ The specific goals of this project include:
 ## API's used
 
 - __GeoNames__
-    <https://www.geonames.org/>
-    input: city name (text)
-    output: latitude / longitude data
+    - <https://www.geonames.org/>
+    - input: city name (text)
+    - output: latitude / longitude data
+
 
 - __Weatherbit__
-    <https://www.weatherbit.io/>
-    input: latitude / longitude data
-    output: current or forecasted weather
+    - <https://www.weatherbit.io/>
+    - input: latitude / longitude data
+    - output: current or forecasted weather
+
 
 - __Pixabay__
-    <https://www.weatherbit.io/>
-    input: city name (text)
-    output: free images of the city
+    - <https://www.weatherbit.io/>
+    - input: city name (text)
+    - output: free images of the city
 
 
 
